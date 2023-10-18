@@ -16,6 +16,8 @@ public class MapGenerator : MonoBehaviour
     
     int[,] map;
 
+    public int PassageWidth;
+
     private void Start()
     {
         GenerateMap();
@@ -33,7 +35,7 @@ public class MapGenerator : MonoBehaviour
 
         ProcessMap();
 
-        int borderSize = 1 ;
+        int borderSize = 50 ;
         int[,] borderedMap = new int[width + borderSize * 2, height + borderSize * 2];
 
         for (int x = 0; x < borderedMap.GetLength(0); x++)
@@ -186,7 +188,7 @@ public class MapGenerator : MonoBehaviour
         List<Coord> line = GetLine(tileA, tileB);
         foreach (Coord c in line)
         {
-            DrawCircle(c, 1);
+            DrawCircle(c, PassageWidth);
         }
     }
 
